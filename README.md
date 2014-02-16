@@ -1,4 +1,4 @@
-ngc
+geowall
 ===
 
 Set National Geographic Channel's photo of the day as your Ubuntu wallpaper!
