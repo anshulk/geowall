@@ -1,9 +1,12 @@
 #!/bin/bash
 #set National Geographic Channel's photo of the day as wallpaper
-
-wget --quiet http://photography.nationalgeographic.co.in/photography/photo-of-the-day/ -O /tmp/ngc.html
+echo "Downloading the Webpage"
+wget --quiet --show-progress http://photography.nationalgeographic.com/photography/photo-of-the-day/ -O /tmp/ngc.html
 url=`grep -o -m 1 images.nationalgeographic.com/wpf/media-live/photos/.*x.*jpg /tmp/ngc.html` 
+echo "Found the image url : "
 echo $url
-wget --quiet http://$url -O /tmp/pic.jpg
+echo "Downloading the image :"
+wget  --quiet --show-progress http://$url -O /tmp/pic.jpg &&
+echo "Setting the wallpaper for you." &&
 gsettings set org.gnome.desktop.background picture-uri file:///tmp/pic.jpg
-
+echo "All done!"
