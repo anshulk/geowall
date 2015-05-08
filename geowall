@@ -6,7 +6,7 @@ url=`grep -o -m 1 images.nationalgeographic.com/wpf/media-live/photos/.*x.*jpg /
 echo "Found the image url : "
 echo $url
 echo "Downloading the image :"
-wget  --quiet --show-progress http://$url -O /tmp/pic.jpg &&
+wget  --quiet --show-progress http://$url -O ~/.geowall.jpg &&
 echo "Setting the wallpaper for you." &&
-gsettings set org.gnome.desktop.background picture-uri file:///tmp/pic.jpg
+gsettings set org.gnome.desktop.background picture-uri file:///$HOME/.geowall.jpg
 echo "All done!"
